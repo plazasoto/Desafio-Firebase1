@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h1>Formulario</h1>
+        <h1>Formulario de registro</h1>
         <form @submit.prevent="addUsuario">
             <input v-model="nombreUsuario" placeholder="Nombre Completo" />
             <input v-model="correoUsuario" type="email" placeholder="Correo Electrónico">
-            <button type="submit">Agregar</button>
+            <button type="submit">Agregar Usuario</button>
         </form>
 
 
@@ -33,3 +33,9 @@
         }
     };
 </script>
+
+<style scoped>
+    div{
+        margin-bottom: 10%;
+    }
+</style>

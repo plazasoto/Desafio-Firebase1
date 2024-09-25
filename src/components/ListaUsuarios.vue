@@ -4,6 +4,7 @@
         <ul>
             <li v-for="usuario in usuarios" :key="usuario.id">
                 {{ usuario.Nombre }} - {{ usuario.Correo }}
+                <button @click="deleteUsuario(usuario.id)" >Eliminar</button>
             </li>
         </ul>
     </div>
@@ -26,5 +27,12 @@
                 this.usuarios = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
             });
         },
+        methods: {
+            async deleteUsuario(userID) {
+                const db = getFirestore(firebaseApp);
+                const usersRef = doc(db, 'Usuarios' , userID);
+                await deleteDoc(usersRef);
+            }
+        }
     };
 </script>
